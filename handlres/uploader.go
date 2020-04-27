@@ -14,7 +14,7 @@ import (
 )
 var basePath = "temp/files/"
 
-func ChangeProfileImage(w http.ResponseWriter, r *http.Request) {
+func UploadFile(w http.ResponseWriter, r *http.Request) {
 	var file model.File
 	 
 	imageName, err := helpres.FileUpload(r)
@@ -33,7 +33,7 @@ func ChangeProfileImage(w http.ResponseWriter, r *http.Request) {
 	file.Path = imageName
 	file.CreatedAt = time.Now()
 	//if no error insert uploade & save in DB
-	fmt.Println(file)
+	//fmt.Println(file)
     database.SaveFile(&file)
     w.Header().Set("Content-Type", "application/json")
     //we then return the new user details to update our user interface

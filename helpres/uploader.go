@@ -1,3 +1,4 @@
+// Package helpres could be used to serve common goals between multiple packages
 package helpres
 
 import (
@@ -6,6 +7,7 @@ import (
 	"io"	
 )
 
+// FileUpload to deal with file saving in our local storage
 func FileUpload(r *http.Request) (string, error) {
    //this function returns the filename(to save in database) of the saved file or an error if it occurs
 	r.ParseMultipartForm(32 << 20)
